@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Getter
 @Setter
@@ -19,9 +18,9 @@ public class Station {
 
     private String stationName;
 
-    private Integer stationLineNumber;
-
     private String beforeStationName;
 
     private String afterStationName;
+
+    private String stationLineCode;
 }

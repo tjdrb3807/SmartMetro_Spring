@@ -19,9 +19,6 @@ public class StationRepository {
         return entityManager.find(Station.class, id);
     }
 
-
-
-
     public Station findOneByStationCode(Integer stationCode) {
         return entityManager.find(Station.class, stationCode);
     }

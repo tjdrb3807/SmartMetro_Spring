@@ -20,7 +20,7 @@ public class StationAPIController {
     public Result searchStationV2(@PathVariable("stationCode") Integer stationCode) {
         List<Station> findStations = stationService.findStationByCode(stationCode);
         List<StationDTO> collect = findStations.stream()
-                .map(s -> new StationDTO(s.getStationName(), s.getStationLineNumber(), s.getBeforeStationName(), s.getAfterStationName()))
+                .map(s -> new StationDTO(s.getStationCode(), s.getStationName(), s.getBeforeStationName(), s.getAfterStationName(), s.getStationLineCode()))
                 .collect(Collectors.toList());
 
         return new Result(collect);
@@ -35,9 +35,11 @@ public class StationAPIController {
     @Data
     @AllArgsConstructor
     static class StationDTO {
+        private Integer stationCode;
         private String stationName;
-        private Integer stationLineNumber;
         private String beforeStationName;
         private String afterStationName;
+
+        private String stationLineCode;
     }
 }
